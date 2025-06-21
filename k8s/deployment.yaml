@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: springboot-app
-          image: pranaydockerusr/springboot-app:latest
+          image: pranaydockerusr/springboot-app:v18
           ports:
             - containerPort: 8080
           resources:
