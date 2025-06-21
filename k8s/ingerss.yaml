@@ -10,21 +10,21 @@ spec:
   rules:
     - http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: ^/$
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: springboot-app-service
                 port:
                   number: 80
-          - path: /prometheus(/|$)(.*)
+          - path: ^/prometheus(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
                 name: prometheus
                 port:
                   number: 80
-          - path: /grafana(/|$)(.*)
+          - path: ^/grafana(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
               service:
