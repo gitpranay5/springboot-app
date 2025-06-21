@@ -15,7 +15,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: springboot-app
-          image: pranaydockerusr/springboot-app:v27
+          image: pranaydockerusr/springboot-app:v28
           ports:
             - containerPort: 8080
           resources:
