@@ -12,6 +12,7 @@ spec:
       labels:
         app: springboot-app
     spec:
+      automountServiceAccountToken: false
       containers:
         - name: springboot-app
           image: pranaydockerusr/springboot-app:v18
