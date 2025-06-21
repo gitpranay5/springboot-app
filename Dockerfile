@@ -5,8 +5,16 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-slim
+# Create a non-root user and group
+RUN groupadd -r spring && useradd -r -g spring springuser
+
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
+
+RUN chown springuser:springuser app.jar
+# Switch to the non-root user
+USER springuser
+
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
