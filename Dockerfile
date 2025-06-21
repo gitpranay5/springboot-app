@@ -11,8 +11,11 @@ RUN groupadd -r spring && useradd -r -g spring springuser
 
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
+RUN chown springuser:spring app.jar
 
-RUN chown springuser:springuser app.jar
+# in a single line 
+#COPY --from=build --chown=springuser:spring /app/target/*.jar app.jar
+
 # Switch to the non-root user
 USER springuser
 
