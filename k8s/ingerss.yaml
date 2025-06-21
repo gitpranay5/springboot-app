@@ -17,6 +17,13 @@ spec:
                 name: springboot-app-service
                 port:
                   number: 80
+          - path: ^/actuator/prometheus$
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: springboot-app-service
+                port:
+                  number: 80
           - path: ^/prometheus(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
