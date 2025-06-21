@@ -8,18 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class DemoApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
-
     @GetMapping("/")
     public String root() {
         return "Welcome to the Spring Boot Metrics App!";
-    }
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, this is a Spring Boot app with Prometheus metrics!";
     }
 }
